@@ -70,6 +70,7 @@ class _FriendLIstState extends State<FriendLIst> {
 
   @override
   Widget build(BuildContext context) {
+    UserProvider userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       drawerScrimColor: Colors.black,
@@ -148,7 +149,7 @@ class _FriendLIstState extends State<FriendLIst> {
                 Icons.account_circle,
                 color: Colors.black,
               ),
-              title: const Text('Yoo Isae'),
+              title:  Text(userProvider.singleUser.name+" ("+userProvider.singleUser.id+")", style: TextStyle(color:Colors.black),),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => MyHomePage()));
